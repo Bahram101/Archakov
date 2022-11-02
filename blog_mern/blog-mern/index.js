@@ -81,7 +81,7 @@ app.patch(
     PostController.update
 );
 
-app.listen(process.env.MONGO_URI || 5000, (err) => {
+app.listen(process.env.PORT || 5000, (err) => {
     if (err) {
         return console.log("err");
     }
