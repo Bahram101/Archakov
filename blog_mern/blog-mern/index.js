@@ -14,7 +14,7 @@ const app = express();
 
 mongoose
     .connect(
-        "mongodb+srv://bahram:bahram123456@cluster0.m3bkulz.mongodb.net/blog?retryWrites=true&w=majority"
+        process.env.MONGO_URI
     )
     .then(() => console.log("DB ok"))
     .catch((error) => console.log("DB error", error));
@@ -81,7 +81,7 @@ app.patch(
     PostController.update
 );
 
-app.listen(5000, (err) => {
+app.listen(process.env.MONGO_URI || 5000, (err) => {
     if (err) {
         return console.log("err");
     }
